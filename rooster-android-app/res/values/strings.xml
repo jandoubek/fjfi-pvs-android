@@ -1,5 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="hello">Hello rooster-android-app!</string>
-    <string name="app_name">rooster-android-app</string>
+    <string name="app_name">Rooster</string>
+    <string name="monday">Mon</string>
+    <string name="tuesday">Tue</string>
+    <string name="wednesday">Wed</string>
+    <string name="thursday">Thu</string>
+    <string name="friday">Fri</string>
+    <string name="time">Time</string>
+    <string name="time1">7:30 - 9:10</string>
+    <string name="time2">9:30 - 11:10</string>
+    <string name="time3">11:30 - 13:10</string>
+    <string name="time4">13:30 - 15:10</string>
+    <string name="time5">15:30 - 17:10</string>
+    <string name="time6">17:30 - 19:10</string>
+    <string name="time7">19:30 - 21:10</string>
+    <string name="subject">Subject</string>
 </resources>
