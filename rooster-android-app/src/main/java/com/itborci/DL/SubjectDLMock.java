@@ -18,18 +18,15 @@ import java.util.List;
  * @author <a href="mailto:petr.ujezdsky@gmail.com">Petr Újezdský</a>
  * @version $Id$
  */
-public class SubjectDLMock implements SubjectDL {
-    @Override
+public class SubjectDLMock implements SubjectDL {    
     public void saveSubject(Subject subject) {
         //To change body of implemented methods use File | Settings | File Templates.
     }
-
-    @Override
+    
     public void createSubject(Subject subject) {
         //To change body of implemented methods use File | Settings | File Templates.
     }
 
-    @Override
     public List<Subject> getSubjectsByDay(DayOfWeek dayOfWeek) {
         return null;  //To change body of implemented methods use File | Settings | File Templates.
     }

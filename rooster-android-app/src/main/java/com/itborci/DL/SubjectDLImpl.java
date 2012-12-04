@@ -20,17 +20,14 @@ import java.util.List;
  */
 public class SubjectDLImpl implements SubjectDL {
 
-    @Override
     public void saveSubject(Subject subject) {
         //To change body of implemented methods use File | Settings | File Templates.
     }
 
-    @Override
     public void createSubject(Subject subject) {
         //To change body of implemented methods use File | Settings | File Templates.
     }
 
-    @Override
     public List<Subject> getSubjectsByDay(DayOfWeek dayOfWeek) {
         return null;  //To change body of implemented methods use File | Settings | File Templates.
     }

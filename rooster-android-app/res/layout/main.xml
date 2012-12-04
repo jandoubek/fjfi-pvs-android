@@ -87,7 +87,7 @@
         <TextView
             android:id="@+id/textView1"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_weight="0.166"
             android:text="@string/time1"
@@ -106,7 +106,7 @@
         <TextView
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_weight="0.166"
             android:text="@string/time2"
@@ -125,7 +125,7 @@
         <TextView
             android:id="@+id/textView3"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_weight="0.166"
             android:text="@string/time3"
             android:textAppearance="?android:attr/textAppearanceSmall" />
@@ -143,7 +143,7 @@
         <TextView
             android:id="@+id/textView4"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_weight="0.166"
             android:text="@string/time4"
             android:textAppearance="?android:attr/textAppearanceSmall" />
@@ -161,7 +161,7 @@
         <TextView
             android:id="@+id/textView5"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_weight="0.166"
             android:text="@string/time5"
             android:textAppearance="?android:attr/textAppearanceSmall" />
@@ -179,7 +179,7 @@
         <TextView
             android:id="@+id/textView6"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_weight="0.166"
             android:text="@string/time6"
             android:textAppearance="?android:attr/textAppearanceSmall" />
@@ -197,7 +197,7 @@
         <TextView
             android:id="@+id/textView7"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_weight="0.166"
             android:text="@string/time7"
             android:textAppearance="?android:attr/textAppearanceSmall" />
