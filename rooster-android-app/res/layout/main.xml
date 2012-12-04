@@ -88,38 +88,135 @@
             android:id="@+id/textView1"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_gravity="center_horizontal"
             android:layout_weight="0.166"
             android:text="@string/time1"
             android:textAppearance="?android:attr/textAppearanceSmall" />
+
+        <TextView
+            android:id="@+id/tv_po_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.166"
+            android:clickable="true"
+            android:onClick="onClick"
+            android:gravity="center_horizontal"
+            android:text="@string/test_subject" />
+
+        <TextView
+            android:id="@+id/tv_ut_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.166"
+            android:clickable="true"
+            android:onClick="onClick"
+            android:gravity="center_horizontal"
+            android:text="@string/test_subject" />
+
+        <TextView
+            android:id="@+id/tv_st_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.166"
+            android:clickable="true"
+            android:onClick="onClick"
+            android:gravity="center_horizontal"
+            android:text="@string/test_subject" />
+
+        <TextView
+            android:id="@+id/tv_ct_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.166"
+            android:clickable="true"
+            android:onClick="onClick"
+            android:gravity="center_horizontal"
+            android:text="@string/test_subject" />
+
+        <TextView
+            android:id="@+id/tv_pa_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:layout_weight="0.166"
+            android:clickable="true"
+            android:onClick="onClick"
+            android:text="@string/test_subject" />
 
     </TableRow>
 
     <TableRow
         android:id="@+id/tableRow3"
-        android:layout_marginTop="1dp"
-        android:layout_marginBottom="1dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="1dp"
+        android:layout_marginTop="1dp"
         android:background="@drawable/border" >
 
         <TextView
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_gravity="center_horizontal"
             android:layout_weight="0.166"
             android:text="@string/time2"
             android:textAppearance="?android:attr/textAppearanceSmall" />
 
+        <TextView
+            android:id="@+id/tv_po_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.166"
+            android:gravity="center_horizontal"
+            android:clickable="true"
+            android:onClick="onClick"
+            android:text="@string/test_subject" />
+
+        <TextView
+            android:id="@+id/tv_ut_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.166"
+            android:gravity="center_horizontal"
+            android:clickable="true"
+            android:onClick="onClick"
+            android:text="@string/test_subject" />
+
+        <TextView
+            android:id="@+id/tv_st_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.166"
+            android:clickable="true"
+            android:onClick="onClick"
+            android:gravity="center_horizontal"
+            android:text="@string/test_subject" />
+
+        <TextView
+            android:id="@+id/tv_ct_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.166"
+            android:clickable="true"
+            android:onClick="onClick"
+            android:gravity="center_horizontal"
+            android:text="@string/test_subject" />
+
+        <TextView
+            android:id="@+id/tv_pa_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.166"
+            android:clickable="true"
+            android:onClick="onClick"
+            android:gravity="center_horizontal"
+            android:text="@string/test_subject" />
     </TableRow>
 
     <TableRow
         android:id="@+id/tableRow4"
-        android:layout_marginTop="1dp"
-        android:layout_marginBottom="1dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="1dp"
+        android:layout_marginTop="1dp"
         android:background="@drawable/border" >
 
         <TextView
@@ -130,14 +227,63 @@
             android:text="@string/time3"
             android:textAppearance="?android:attr/textAppearanceSmall" />
 
+        <TextView
+            android:id="@+id/tv_po_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.166"
+            android:clickable="true"
+            android:onClick="onClick"
+            android:gravity="center_horizontal"
+            android:text="@string/test_subject" />
+
+        <TextView
+            android:id="@+id/tv_ut_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.166"
+            android:clickable="true"
+            android:onClick="onClick"
+            android:gravity="center_horizontal"
+            android:text="@string/test_subject" />
+
+        <TextView
+            android:id="@+id/tv_st_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.166"
+            android:clickable="true"
+            android:onClick="onClick"
+            android:gravity="center_horizontal"
+            android:text="@string/test_subject" />
+
+        <TextView
+            android:id="@+id/tv_ct_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.166"
+            android:clickable="true"
+            android:onClick="onClick"
+            android:gravity="center_horizontal"
+            android:text="@string/test_subject" />
+
+        <TextView
+            android:id="@+id/tv_pa_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.166"
+            android:clickable="true"
+            android:onClick="onClick"
+            android:gravity="center_horizontal"
+            android:text="@string/test_subject" />
     </TableRow>
 
     <TableRow
         android:id="@+id/tableRow5"
-        android:layout_marginTop="1dp"
-        android:layout_marginBottom="1dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="1dp"
+        android:layout_marginTop="1dp"
         android:background="@drawable/border" >
 
         <TextView
@@ -148,14 +294,63 @@
             android:text="@string/time4"
             android:textAppearance="?android:attr/textAppearanceSmall" />
 
+        <TextView
+            android:id="@+id/tv_po_4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.166"
+            android:clickable="true"
+            android:onClick="onClick"
+            android:gravity="center_horizontal"
+            android:text="@string/test_subject" />
+
+        <TextView
+            android:id="@+id/tv_ut_4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.166"
+            android:clickable="true"
+            android:onClick="onClick"
+            android:gravity="center_horizontal"
+            android:text="@string/test_subject" />
+
+        <TextView
+            android:id="@+id/tv_st_4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.166"
+            android:clickable="true"
+            android:onClick="onClick"
+            android:gravity="center_horizontal"
+            android:text="@string/test_subject" />
+
+        <TextView
+            android:id="@+id/tv_ct_4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.166"
+            android:clickable="true"
+            android:onClick="onClick"
+            android:gravity="center_horizontal"
+            android:text="@string/test_subject" />
+
+        <TextView
+            android:id="@+id/tv_pa_4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.166"
+            android:clickable="true"
+            android:onClick="onClick"
+            android:gravity="center_horizontal"
+            android:text="@string/test_subject" />
     </TableRow>
 
     <TableRow
         android:id="@+id/tableRow6"
-        android:layout_marginTop="1dp"
-        android:layout_marginBottom="1dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="1dp"
+        android:layout_marginTop="1dp"
         android:background="@drawable/border" >
 
         <TextView
@@ -166,14 +361,63 @@
             android:text="@string/time5"
             android:textAppearance="?android:attr/textAppearanceSmall" />
 
+        <TextView
+            android:id="@+id/tv_po_5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.166"
+            android:clickable="true"
+            android:onClick="onClick"
+            android:gravity="center_horizontal"
+            android:text="@string/test_subject" />
+
+        <TextView
+            android:id="@+id/tv_ut_5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.166"
+            android:clickable="true"
+            android:onClick="onClick"
+            android:gravity="center_horizontal"
+            android:text="@string/test_subject" />
+
+        <TextView
+            android:id="@+id/tv_st_5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.166"
+            android:clickable="true"
+            android:onClick="onClick"
+            android:gravity="center_horizontal"
+            android:text="@string/test_subject" />
+
+        <TextView
+            android:id="@+id/tv_ct_5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.166"
+            android:clickable="true"
+            android:onClick="onClick"
+            android:gravity="center_horizontal"
+            android:text="@string/test_subject" />
+
+        <TextView
+            android:id="@+id/tv_pa_5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.166"
+            android:clickable="true"
+            android:onClick="onClick"
+            android:gravity="center_horizontal"
+            android:text="@string/test_subject" />
     </TableRow>
 
     <TableRow
         android:id="@+id/tableRow7"
-        android:layout_marginTop="1dp"
-        android:layout_marginBottom="1dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="1dp"
+        android:layout_marginTop="1dp"
         android:background="@drawable/border" >
 
         <TextView
@@ -184,15 +428,64 @@
             android:text="@string/time6"
             android:textAppearance="?android:attr/textAppearanceSmall" />
 
+        <TextView
+            android:id="@+id/tv_po_6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.166"
+            android:clickable="true"
+            android:onClick="onClick"
+            android:gravity="center_horizontal"
+            android:text="@string/test_subject" />
+
+        <TextView
+            android:id="@+id/tv_ut_6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.166"
+            android:clickable="true"
+            android:onClick="onClick"
+            android:gravity="center_horizontal"
+            android:text="@string/test_subject" />
+
+        <TextView
+            android:id="@+id/tv_st_6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.166"
+            android:clickable="true"
+            android:onClick="onClick"
+            android:gravity="center_horizontal"
+            android:text="@string/test_subject" />
+
+        <TextView
+            android:id="@+id/tv_ct_6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.166"
+            android:clickable="true"
+            android:onClick="onClick"
+            android:gravity="center_horizontal"
+            android:text="@string/test_subject" />
+
+        <TextView
+            android:id="@+id/tv_pa_6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.166"
+            android:clickable="true"
+            android:onClick="onClick"
+            android:gravity="center_horizontal"
+            android:text="@string/test_subject" />
     </TableRow>
 
     <TableRow
         android:id="@+id/tableRow8"
-        android:layout_marginTop="1dp"
-        android:layout_marginBottom="1dp"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" 
-        android:background="@drawable/border">
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="1dp"
+        android:layout_marginTop="1dp"
+        android:background="@drawable/border" >
 
         <TextView
             android:id="@+id/textView7"
@@ -202,6 +495,55 @@
             android:text="@string/time7"
             android:textAppearance="?android:attr/textAppearanceSmall" />
 
+        <TextView
+            android:id="@+id/tv_po_7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.166"
+            android:clickable="true"
+            android:onClick="onClick"
+            android:gravity="center_horizontal"
+            android:text="@string/test_subject" />
+
+        <TextView
+            android:id="@+id/tv_ut_7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.166"
+            android:clickable="true"
+            android:onClick="onClick"
+            android:gravity="center_horizontal"
+            android:text="@string/test_subject" />
+
+        <TextView
+            android:id="@+id/tv_st_7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.166"
+            android:clickable="true"
+            android:onClick="onClick"
+            android:gravity="center_horizontal"
+            android:text="@string/test_subject" />
+
+        <TextView
+            android:id="@+id/tv_ct_7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.166"
+            android:clickable="true"
+            android:onClick="onClick"
+            android:gravity="center_horizontal"
+            android:text="@string/test_subject" />
+
+        <TextView
+            android:id="@+id/tv_pa_7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.166"
+            android:clickable="true"
+            android:onClick="onClick"
+            android:gravity="center_horizontal"
+            android:text="@string/test_subject" />
     </TableRow>
 
     <TableRow
