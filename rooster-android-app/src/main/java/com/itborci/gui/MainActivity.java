@@ -1,13 +1,12 @@
-package com.itborci;
+package com.itborci.gui;
 
-import android.app.Activity;
-import android.app.Dialog;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
+import com.itborci.R;
 
-public class MainActivity extends Activity {
+public class MainActivity extends BaseActivity {
 
     private static String TAG = "rooster-android-app";
     private SubjectDialog subjectDialog;
