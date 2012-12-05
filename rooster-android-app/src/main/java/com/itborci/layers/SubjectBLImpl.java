@@ -20,18 +20,23 @@ import java.util.List;
  * @version $Id$
  */
 public class SubjectBLImpl implements SubjectBL {
+
+    @Override
     public void saveSubject(Subject subject) {
         getSubjectDL().saveSubject(subject);
     }
 
+    @Override
     public void createSubject(Subject subject) {
         getSubjectDL().createSubject(subject);
     }
 
+    @Override
     public List<Subject> getSubjectsByDay(DayOfWeek dayOfWeek) {
         return getSubjectDL().getSubjectsByDay(dayOfWeek);
     }
 
+    @Override
     public List<List<Subject>> getSubjectsByWeek() {
         List<List<Subject>> result = new ArrayList<List<Subject>>();
 
