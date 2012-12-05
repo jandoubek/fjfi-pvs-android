@@ -12,6 +12,8 @@
         <!-- change this to appropriate location -->
         <android.sdk.path>C:\Program Files (x86)\Android\android-sdk</android.sdk.path>
         <platform.version>2.3.3</platform.version>
+        <!-- don't forget to also change it in AndroidManifest.xml:6 -->
+        <platform.version.main>8</platform.version.main>
     </properties>
 
     <dependencies>
@@ -35,7 +37,7 @@
                     <resourceDirectory>${project.basedir}/res</resourceDirectory>
                     <nativeLibrariesDirectory>${project.basedir}/src/main/native</nativeLibrariesDirectory>
                     <sdk>
-                        <platform>7</platform>
+                        <platform>${platform.version.main}</platform>
                     </sdk>
                     <undeployBeforeDeploy>true</undeployBeforeDeploy>
                 </configuration>
