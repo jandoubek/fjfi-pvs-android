@@ -5,25 +5,24 @@
  *
  * All Rights Reserved.
  */
-package com.itborci.DL;
+package com.itborci.layers;
 
-import com.itborci.POJO.Subject;
 import com.itborci.enums.DayOfWeek;
+import com.itborci.layers.POJO.Subject;
 
 import java.util.List;
 
 /**
- * Data access layer for object {@link Subject}
+ * Mock implementation of Subject DL
  *
  * @author <a href="mailto:petr.ujezdsky@gmail.com">Petr Újezdský</a>
  * @version $Id$
  */
-public class SubjectDLImpl implements SubjectDL {
-
+class SubjectDLMock implements SubjectDL {
     public void saveSubject(Subject subject) {
         //To change body of implemented methods use File | Settings | File Templates.
     }
-
+    
     public void createSubject(Subject subject) {
         //To change body of implemented methods use File | Settings | File Templates.
     }

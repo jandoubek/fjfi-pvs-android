@@ -5,15 +5,15 @@
  *
  * All Rights Reserved.
  */
-package com.itborci.BL;
+package com.itborci.layers;
 
-import com.itborci.POJO.Subject;
 import com.itborci.enums.DayOfWeek;
+import com.itborci.layers.POJO.Subject;
 
 import java.util.List;
 
 /**
- * Bussiness layer for object {@link Subject}
+ * Bussiness layer for object {@link com.itborci.layers.POJO.Subject}
  *
  * @author <a href="mailto:petr.ujezdsky@gmail.com">Petr Újezdský</a>
  * @version $Id$

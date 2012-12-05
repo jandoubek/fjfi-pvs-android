@@ -5,20 +5,20 @@
  *
  * All Rights Reserved.
  */
-package com.itborci.DL;
+package com.itborci.layers;
 
-import com.itborci.POJO.Subject;
 import com.itborci.enums.DayOfWeek;
+import com.itborci.layers.POJO.Subject;
 
 import java.util.List;
 
 /**
- * Data access layer for object {@link Subject}
+ * Data access layer for object {@link com.itborci.layers.POJO.Subject}
  *
  * @author <a href="mailto:petr.ujezdsky@gmail.com">Petr Újezdský</a>
  * @version $Id$
  */
-public interface SubjectDL {
+interface SubjectDL {
 
     /**
      * Saves subject into storage media

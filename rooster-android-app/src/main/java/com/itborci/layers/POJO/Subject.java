@@ -5,7 +5,7 @@
  *
  * All Rights Reserved.
  */
-package com.itborci.POJO;
+package com.itborci.layers.POJO;
 
 /**
  * Object holding data for Subject.

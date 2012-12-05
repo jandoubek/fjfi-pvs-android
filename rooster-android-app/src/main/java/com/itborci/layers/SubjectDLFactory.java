@@ -5,21 +5,25 @@
  *
  * All Rights Reserved.
  */
-package com.itborci.DL;
+package com.itborci.layers;
 
 import com.itborci.common.Settings;
 
 /**
- * Factory for data access layers
+ * Factory for Subject data access layer
  *
  * @author <a href="mailto:petr.ujezdsky@gmail.com">Petr Újezdský</a>
  * @version $Id$
  */
-public class DLFactory {
+class SubjectDLFactory {
 
-    protected static SubjectDL subjectDL = null;
+    private static SubjectDL subjectDL = null;
 
-    public SubjectDL getSubjectDL() {
+    // don't allow instantiation
+    private SubjectDLFactory() {
+    }
+
+    public static SubjectDL getSubjectDL() {
         if (subjectDL == null) {
             if (Settings.mockSubjectDL()) {
                 subjectDL = new SubjectDLMock();
