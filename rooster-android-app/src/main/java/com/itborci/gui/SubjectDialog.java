@@ -33,7 +33,10 @@ public class SubjectDialog extends BaseDialog {
         setTitle(R.string.subject_details);
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
 
-		initWidgets(); 
+		initWidgets();
+		
+		String text = editedTextView.getText().toString();
+		if (text != null) fillEditTexts(text);
 	}
 
 	private void initWidgets() {
@@ -90,8 +93,9 @@ public class SubjectDialog extends BaseDialog {
 
 			@Override
 			public void onClick(View v) {
-				editedTextView.setText("");
+				editedTextView.setText("Test\n\nSubject");
 				editedTextView.setBackgroundColor(Color.WHITE);
+				editedTextView.setTextColor(Color.GRAY);
 				hide();				
 			}
 		});
@@ -107,6 +111,13 @@ public class SubjectDialog extends BaseDialog {
 		});
 		
 		name.requestFocus(); // cursor sets on first EditText
+	}
+	
+	private void fillEditTexts(String text) {
+		String[] inputs = text.split("\n");
+		name.setText(inputs[0]);
+		classroom.setText(inputs[1]);
+		teacher.setText(inputs[2]);
 	}
 	
 	// editing of too long inputs
@@ -144,4 +155,6 @@ public class SubjectDialog extends BaseDialog {
 		
 		if (idColor != 3) editedTextView.setTextColor(Color.WHITE); // 3 = yellow => white text and yellow background isnù good combination
 	}
+	
+	
 }
