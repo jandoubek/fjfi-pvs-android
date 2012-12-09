@@ -25,7 +25,16 @@
     <string name="cancel">Cancel</string>
     <string name="delete">Delete</string>
     <string name="ok">Ok</string>
+    <string name="spinnerPrompt">Choose color..</string>
     <string name="color_blue">blue</string>
     <string name="color_red">red</string>
     <string name="red">red</string>
+    
+    <string-array name="colors">
+        <item>Blue</item>
+        <item>Red</item>
+        <item>Green</item>
+        <item>Yellow</item>
+        <item>Black</item>
+    </string-array>
 </resources>

@@ -65,6 +65,7 @@
 
     <EditText
         android:id="@+id/nameEditText"
+        android:inputType="textCapSentences"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/nameTextView"
@@ -74,6 +75,7 @@
 
     <EditText
         android:id="@+id/classroomEditText"
+        android:inputType="textCapSentences"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/classroomTextView"
@@ -86,11 +88,21 @@
 
     <EditText
         android:id="@+id/teacherEditText"
+        android:inputType="textCapSentences"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/teacherTextView"
         android:layout_alignBottom="@+id/teacherTextView"
         android:layout_alignParentRight="true"
         android:ems="10" />
+
+    <Spinner
+        android:id="@+id/colorSpinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/teacherEditText"
+        android:layout_alignTop="@+id/colorTextView"
+        android:entries="@array/colors"
+        android:prompt="@string/spinnerPrompt" />
 
 </RelativeLayout>
