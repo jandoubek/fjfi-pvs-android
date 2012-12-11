@@ -13,6 +13,7 @@ public class DBAdapter {
     public static final String KEY_SUBJECT = "subject";
     public static final String KEY_TEACHER = "teacher";
     public static final String KEY_ROOM = "room";
+    public static final String KEY_DAY = "day";
     public static final String KEY_FROM = "from";
     public static final String KEY_TO = "to";
     public static final String KEY_COLOR = "color";
@@ -25,8 +26,8 @@ public class DBAdapter {
 
     private static final String TABLE_CREATE =
         "create table subjects (id integer primary key autoincrement, "
-        + "subject text not null, teacher text not null, room text not null, from text not null, "
-		+ "to text not null, color integer not null, bell integer not null);";
+        + "subject text not null, teacher text not null, room text not null, day text not null, "
+		+ "from text not null, to text not null, color integer not null, bell integer not null);";
         
     private final Context context; 
     
@@ -78,12 +79,13 @@ public class DBAdapter {
     }
     
     //Vloží položku do tabulky subjects
-    public long insertSubject(String subject, String teacher, String room, String from, String to, int color, int bell) throws SQLException 
+    public long insertSubject(String subject, String teacher, String room, String day, String from, String to, int color, int bell) throws SQLException 
     {
         ContentValues initialValues = new ContentValues();
         initialValues.put(KEY_SUBJECT, subject);
         initialValues.put(KEY_TEACHER, teacher);
         initialValues.put(KEY_ROOM, room);
+        initialValues.put(KEY_DAY, day);
         initialValues.put(KEY_FROM, from);
         initialValues.put(KEY_TO, to);
         initialValues.put(KEY_COLOR, color);
@@ -105,6 +107,7 @@ public class DBAdapter {
         		KEY_SUBJECT,
         		KEY_TEACHER,
         		KEY_ROOM,
+        		KEY_DAY,
         		KEY_FROM,
         		KEY_TO,
         		KEY_COLOR,
@@ -125,6 +128,7 @@ public class DBAdapter {
                 		KEY_SUBJECT,
                 		KEY_TEACHER,
                 		KEY_ROOM,
+                		KEY_DAY,
                 		KEY_FROM,
                 		KEY_TO,
                 		KEY_COLOR,
@@ -142,12 +146,13 @@ public class DBAdapter {
     }
 
     //Aktualizace určitého záznamu z tabulky subjects
-    public boolean updateSubject(long rowId, String subject, String teacher, String room, String from, String to, int color, int bell) throws SQLException 
+    public boolean updateSubject(long rowId, String subject, String teacher, String room, String day, String from, String to, int color, int bell) throws SQLException 
     {
         ContentValues args = new ContentValues();
         args.put(KEY_SUBJECT, subject);
         args.put(KEY_TEACHER, teacher);
         args.put(KEY_ROOM, room);
+        args.put(KEY_DAY, day);
         args.put(KEY_FROM, from);
         args.put(KEY_TO, to);
         args.put(KEY_COLOR, color);
