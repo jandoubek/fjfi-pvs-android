@@ -7,13 +7,13 @@
  */
 package com.itborci.layers;
 
+import com.itborci.POJO.Subject;
 import com.itborci.enums.DayOfWeek;
-import com.itborci.layers.POJO.Subject;
 
 import java.util.List;
 
 /**
- * Bussiness layer for object {@link com.itborci.layers.POJO.Subject}
+ * Bussiness layer for object {@link com.itborci.POJO.Subject}
  *
  * @author <a href="mailto:petr.ujezdsky@gmail.com">Petr Újezdský</a>
  * @version $Id$
@@ -31,6 +31,12 @@ public interface SubjectBL {
      * @param subject Subject to create
      */
     public void createSubject(Subject subject);
+
+    /**
+     * Deletes subject from storage layer
+     * @param subject Subject to delete
+     */
+    public void deleteSubject(Subject subject);
 
     /**
      * Get subjects that are in given day

@@ -1,18 +1,14 @@
 package com.itborci.gui;
 
-import android.R.color;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.preference.PreferenceManager;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
-
 import com.itborci.R;
 
 public class SubjectDialog extends BaseDialog {
@@ -153,7 +149,7 @@ public class SubjectDialog extends BaseDialog {
 			break;
 		}
 		
-		if (idColor != 3) editedTextView.setTextColor(Color.WHITE); // 3 = yellow => white text and yellow background isn good combination
+		if (idColor != 3) editedTextView.setTextColor(Color.WHITE); // 3 = yellow => white text and yellow background is not good combination
 	}
 	
 	

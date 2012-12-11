@@ -7,14 +7,14 @@
  */
 package com.itborci.layers;
 
+import com.itborci.POJO.Subject;
 import com.itborci.enums.DayOfWeek;
-import com.itborci.layers.POJO.Subject;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Business layer for object {@link com.itborci.layers.POJO.Subject}
+ * Business layer for object {@link com.itborci.POJO.Subject}
  *
  * @author <a href="mailto:petr.ujezdsky@gmail.com">Petr Újezdský</a>
  * @version $Id$
@@ -29,6 +29,11 @@ public class SubjectBLImpl implements SubjectBL {
     @Override
     public void createSubject(Subject subject) {
         getSubjectDL().createSubject(subject);
+    }
+
+    @Override
+    public void deleteSubject(Subject subject) {
+        getSubjectDL().deleteSubject(subject);
     }
 
     @Override
