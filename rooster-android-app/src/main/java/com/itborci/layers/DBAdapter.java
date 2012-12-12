@@ -14,6 +14,7 @@ public class DBAdapter {
     public static final String KEY_TEACHER = "teacher";
     public static final String KEY_ROOM = "room";
     public static final String KEY_DAY = "day";
+    public static final String KEY_WEEK = "week";
     public static final String KEY_FROM = "from";
     public static final String KEY_TO = "to";
     public static final String KEY_COLOR = "color";
@@ -26,8 +27,9 @@ public class DBAdapter {
 
     private static final String TABLE_CREATE =
         "create table subjects (id integer primary key autoincrement, "
-        + "subject text not null, teacher text not null, room text not null, day text not null, "
-		+ "from text not null, to text not null, color integer not null, bell integer not null);";
+        + "subject text not null, teacher text not null, room text not null, day integer not null, "
+		+ "week integer not null, from integer not null, to integer not null, color integer not null, "
+        + "bell integer not null);";
         
     private final Context context; 
     
@@ -79,13 +81,14 @@ public class DBAdapter {
     }
     
     //Vloží položku do tabulky subjects
-    public long insertSubject(String subject, String teacher, String room, String day, String from, String to, int color, int bell) throws SQLException 
+    public long insertSubject(String subject, String teacher, String room, int day, int week, int from, int to, int color, int bell) throws SQLException 
     {
         ContentValues initialValues = new ContentValues();
         initialValues.put(KEY_SUBJECT, subject);
         initialValues.put(KEY_TEACHER, teacher);
         initialValues.put(KEY_ROOM, room);
         initialValues.put(KEY_DAY, day);
+        initialValues.put(KEY_WEEK, week);
         initialValues.put(KEY_FROM, from);
         initialValues.put(KEY_TO, to);
         initialValues.put(KEY_COLOR, color);
@@ -94,7 +97,7 @@ public class DBAdapter {
     }
 
     //Smaže určitou položku z tabulky subjects
-    public boolean deleteSubject(long rowId) throws SQLException
+    public boolean deleteSubjectById(long rowId) throws SQLException
     {
         return db.delete(DATABASE_TABLE, KEY_ID + "=" + rowId, null) > 0;
     }
@@ -108,6 +111,7 @@ public class DBAdapter {
         		KEY_TEACHER,
         		KEY_ROOM,
         		KEY_DAY,
+        		KEY_WEEK,
         		KEY_FROM,
         		KEY_TO,
         		KEY_COLOR,
@@ -120,7 +124,7 @@ public class DBAdapter {
     }
 
     //Vrátí určitý záznam z tabulky subjects
-    public Cursor getSubject(long rowId) throws SQLException 
+    public Cursor getSubjectById(long rowId) throws SQLException 
     {
         Cursor mCursor =
                 db.query(true, DATABASE_TABLE, new String[] {
@@ -129,6 +133,7 @@ public class DBAdapter {
                 		KEY_TEACHER,
                 		KEY_ROOM,
                 		KEY_DAY,
+                		KEY_WEEK,
                 		KEY_FROM,
                 		KEY_TO,
                 		KEY_COLOR,
@@ -146,17 +151,45 @@ public class DBAdapter {
     }
 
     //Aktualizace určitého záznamu z tabulky subjects
-    public boolean updateSubject(long rowId, String subject, String teacher, String room, String day, String from, String to, int color, int bell) throws SQLException 
+    public boolean updateSubjectById(long rowId, String subject, String teacher, String room, int day, int week, int from, int to, int color, int bell) throws SQLException 
     {
         ContentValues args = new ContentValues();
         args.put(KEY_SUBJECT, subject);
         args.put(KEY_TEACHER, teacher);
         args.put(KEY_ROOM, room);
         args.put(KEY_DAY, day);
+        args.put(KEY_WEEK, week);
         args.put(KEY_FROM, from);
         args.put(KEY_TO, to);
         args.put(KEY_COLOR, color);
         args.put(KEY_BELL, bell);
         return db.update(DATABASE_TABLE, args, KEY_ID + "=" + rowId, null) > 0;
+    }
+    
+    //Vrátí určitý záznam z tabulky subjects
+    public Cursor getSubjectByDay(int day) throws SQLException 
+    {
+        Cursor mCursor =
+                db.query(true, DATABASE_TABLE, new String[] {
+                		KEY_ID, 
+                		KEY_SUBJECT,
+                		KEY_TEACHER,
+                		KEY_ROOM,
+                		KEY_DAY,
+                		KEY_WEEK,
+                		KEY_FROM,
+                		KEY_TO,
+                		KEY_COLOR,
+                		KEY_BELL},
+                		KEY_DAY + "=" + day, 
+                		null,
+                		null, 
+                		null, 
+                		null, 
+                		null);
+        if (mCursor != null) {
+            mCursor.moveToFirst();
+        }
+        return mCursor;
     }
 }
