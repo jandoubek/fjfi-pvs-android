@@ -167,7 +167,7 @@ public class DBAdapter {
     }
     
     //Vrátí určitý záznam z tabulky subjects
-    public Cursor getSubjectByDay(int day) throws SQLException 
+    public Cursor getSubjectByDayAndWeek(int day, int week) throws SQLException 
     {
         Cursor mCursor =
                 db.query(true, DATABASE_TABLE, new String[] {
@@ -181,7 +181,7 @@ public class DBAdapter {
                 		KEY_TO,
                 		KEY_COLOR,
                 		KEY_BELL},
-                		KEY_DAY + "=" + day, 
+                		KEY_DAY + "=" + day + "and" + KEY_WEEK + "=" + week, 
                 		null,
                 		null, 
                 		null, 
