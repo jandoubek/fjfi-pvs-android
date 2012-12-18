@@ -94,7 +94,7 @@ public class SubjectDialog extends BaseDialog {
 			@Override
 			public void onClick(View v) {
 				editedTextView.setText("Test\n\nSubject");
-				editedTextView.setBackgroundColor(Color.WHITE);
+				editedTextView.setBackgroundResource(R.drawable.border);
 				editedTextView.setTextColor(Color.GRAY);
 				hide();				
 			}
@@ -153,7 +153,7 @@ public class SubjectDialog extends BaseDialog {
 			break;
 		}
 		
-		if (idColor != 3) editedTextView.setTextColor(Color.WHITE); // 3 = yellow => white text and yellow background isn good combination
+		if (idColor != 3) editedTextView.setTextColor(Color.WHITE); // 3 = yellow => white text and yellow background is not good combination
 	}
 	
 	
