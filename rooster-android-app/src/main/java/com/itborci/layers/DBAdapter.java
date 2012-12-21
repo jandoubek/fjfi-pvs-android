@@ -175,7 +175,7 @@ public class DBAdapter {
                 		KEY_HOUR,
                 		KEY_COLOR,
                 		KEY_BELL},
-                		KEY_DAY + "=" + day + "and" + KEY_WEEK + "=" + week, 
+                		KEY_DAY + "=" + day + " and " + KEY_WEEK + "=" + week, 
                 		null,
                 		null, 
                 		null, 
