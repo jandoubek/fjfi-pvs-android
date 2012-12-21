@@ -7,7 +7,6 @@
  */
 package com.itborci.POJO;
 
-import com.itborci.enums.DayOfWeek;
 
 /**
  * Object holding data for Subject.
@@ -16,35 +15,41 @@ import com.itborci.enums.DayOfWeek;
  * @version $Id$
  */
 public class Subject {
-    private long id;
+    private Long id;
 
     private String name;
     private String room;
     private String teacher;
-    private DayOfWeek day;
-    private int from;
+    private int week;
+    private int day;
+    private int hour;
     private int to;
     private int color;
     private boolean bell;
 
+    private Subject() {
+    }
 
-    public Subject(long id, String name, String room, String teacher, DayOfWeek day, int from, int to, int color, boolean bell) {
+    private Subject(Long id, String name, String room, String teacher, int week, int day, int hour, int to, int color, boolean bell) {
+        this();
+
         this.id = id;
         this.name = name;
         this.room = room;
         this.teacher = teacher;
+        this.week = week;
         this.day = day;
-        this.from = from;
+        this.hour = hour;
         this.to = to;
         this.color = color;
         this.bell = bell;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -72,20 +77,28 @@ public class Subject {
         this.teacher = teacher;
     }
 
-    public DayOfWeek getDay() {
+    public int getWeek() {
+        return week;
+    }
+
+    public void setWeek(int week) {
+        this.week = week;
+    }
+
+    public int getDay() {
         return day;
     }
 
-    public void setDay(DayOfWeek day) {
+    public void setDay(int day) {
         this.day = day;
     }
 
-    public int getFrom() {
-        return from;
+    public int getHour() {
+        return hour;
     }
 
-    public void setFrom(int from) {
-        this.from = from;
+    public void setHour(int hour) {
+        this.hour = hour;
     }
 
     public int getTo() {
@@ -110,5 +123,18 @@ public class Subject {
 
     public void setBell(boolean bell) {
         this.bell = bell;
+    }
+
+
+    public int getBellAsInt() {
+        return isBell() ? 1 : 0;
+    }
+
+    public static Subject create() {
+        return new Subject();
+    }
+
+    public static Subject create(Long id, String name, String room, String teacher, int week, int day, int hour, int to, int color, boolean bell) {
+        return new Subject(id, name, room, teacher, week, day, hour, to, color, bell);
     }
 }

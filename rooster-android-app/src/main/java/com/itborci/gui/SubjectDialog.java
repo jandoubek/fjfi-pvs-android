@@ -8,34 +8,34 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.TextView;
+import com.itborci.POJO.Subject;
 import com.itborci.R;
+import com.itborci.layers.DaoFactory;
 
 public class SubjectDialog extends BaseDialog {
 	private static final int inputMaxLength = 9;
 	private SharedPreferences sharedPreferences;
 	private EditText name, classroom, teacher;
 	private Button okButton, cancelButton, deleteButton;
-	private TextView editedTextView;
 	private Spinner colorSpinner;
-	private Context context;
+    private Context context;
 
-	public SubjectDialog(Context context, TextView textView) {
+    private final SubjectView.Communicator communicator;
+
+	public SubjectDialog(Context context, SubjectView.Communicator communicator) {
 		super(context);
 		this.context = context;
-        this.editedTextView = textView;
+        this.communicator = communicator;
 
         setContentView(R.layout.subject_dialog);
         setTitle(R.string.subject_details);
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
 
 		initWidgets();
-		
-		String text = editedTextView.getText().toString();
-		if (text != null) fillEditTexts(text);
+        fillEditTexts();
 	}
 
-	private void initWidgets() {
+    private void initWidgets() {
 		name = getEditText(R.id.nameEditText);
 		name.setOnFocusChangeListener(new View.OnFocusChangeListener() {
 			
@@ -46,9 +46,7 @@ public class SubjectDialog extends BaseDialog {
 				}
 			}
 		});
-		
-		
-		
+
 		classroom = getEditText(R.id.classroomEditText);
 		classroom.setOnFocusChangeListener(new View.OnFocusChangeListener() {
 			
@@ -78,9 +76,7 @@ public class SubjectDialog extends BaseDialog {
 
 			@Override
 			public void onClick(View v) {
-				editedTextView.setText(name.getText() + "\n" + classroom.getText() + "\n" + teacher.getText());
-				setBackgroundColor((int)colorSpinner.getSelectedItemId());
-				hide();				
+				onSave();
 			}
 		});
 		
@@ -89,10 +85,7 @@ public class SubjectDialog extends BaseDialog {
 
 			@Override
 			public void onClick(View v) {
-				editedTextView.setText("Test\n\nSubject");
-				editedTextView.setBackgroundColor(Color.WHITE);
-				editedTextView.setTextColor(Color.GRAY);
-				hide();				
+				onDelete();
 			}
 		});
 		
@@ -101,21 +94,49 @@ public class SubjectDialog extends BaseDialog {
 
 			@Override
 			public void onClick(View v) {
-				hide();
-				
+				onCancel();
 			}
 		});
 		
 		name.requestFocus(); // cursor sets on first EditText
 	}
 	
-	private void fillEditTexts(String text) {
-		String[] inputs = text.split("\n");
-		name.setText(inputs[0]);
-		classroom.setText(inputs[1]);
-		teacher.setText(inputs[2]);
-	}
-	
+	private void fillEditTexts() {
+        Subject subject = communicator.getSubject();
+
+        name.setText(subject.getName());
+        classroom.setText(subject.getRoom());
+        teacher.setText(subject.getTeacher());
+    }
+
+    private void onSave() {
+        Subject subject = communicator.getSubject();
+
+        subject.setName(name.getText().toString());
+        subject.setRoom(classroom.getText().toString());
+        subject.setTeacher(teacher.getText().toString());
+        subject.setColor(getColorFromSpinner(colorSpinner));
+
+        DaoFactory.getSubjectDao().saveSubject(subject, context);
+
+        communicator.updateView(context);
+        hide();
+    }
+
+    private void onCancel() {
+        hide();
+    }
+
+    private void onDelete() {
+        DaoFactory.getSubjectDao().deleteSubject(communicator.getSubject(), context);
+        communicator.getSubject().setId(null);
+
+        communicator.updateView(context);
+        hide();
+    }
+
+
+
 	// editing of too long inputs
 	private String checkLengthOfInputs(EditText et) {
 		String longInput = et.getText().toString();
@@ -127,30 +148,22 @@ public class SubjectDialog extends BaseDialog {
 	}
 
 	// set background of edited TextView
-	private void setBackgroundColor(int idColor) {
-		idColor = (int)colorSpinner.getSelectedItemId();
+	private int getColorFromSpinner(Spinner spinner) {
+		int idColor = (int)spinner.getSelectedItemId();
+
 		switch (idColor) {
 		case 0:
-			editedTextView.setBackgroundColor(Color.BLUE);
-			break;
+            return Color.BLUE;
 		case 1:
-			editedTextView.setBackgroundColor(Color.RED);				
-			break;
+			return Color.RED;
 		case 2:
-			editedTextView.setBackgroundColor(Color.GREEN);
-			break;
+			return 0xFF75FF7A; // greenish
 		case 3:
-			editedTextView.setBackgroundColor(Color.YELLOW);
-			break;
+			return 0xFFFFF675; // yellowish
 		case 4:
-			editedTextView.setBackgroundColor(Color.BLACK);
-			break;
+            return Color.BLACK;
 		default:
-			break;
+			return Color.MAGENTA;
 		}
-		
-		if (idColor != 3) editedTextView.setTextColor(Color.WHITE); // 3 = yellow => white text and yellow background is not good combination
 	}
-	
-	
 }

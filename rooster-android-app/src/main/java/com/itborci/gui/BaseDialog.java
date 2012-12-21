@@ -5,15 +5,15 @@ import android.content.Context;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import com.itborci.layers.SubjectBL;
-import com.itborci.layers.SubjectBLFactory;
+import com.itborci.layers.DaoFactory;
+import com.itborci.layers.SubjectDao;
 import junit.framework.Assert;
 
 /**
  * Base class for dialogs. <br>
  * It contains getter for our SubjectBL and some helper methods.
  *
- * @author <a href="mailto:petr.ujezdsky@cleverlance.com">Petr Újezdský</a>
+ * @author <a href="mailto:petr.ujezdsky@gmail.com">Petr Újezdský</a>
  * @version $Id$
  */
 public class BaseDialog extends Dialog {
@@ -30,12 +30,12 @@ public class BaseDialog extends Dialog {
     }
 
     /**
-     * Getter for our {@link SubjectBL}.
+     * Getter for our {@link SubjectDao}.
      *
      * @return SubjectBL subject business layer
      */
-    protected SubjectBL getSubjectBL() {
-        return SubjectBLFactory.getSubjectBL();
+    protected SubjectDao getSubjectDao() {
+        return DaoFactory.getSubjectDao();
     }
 
     /**
