@@ -137,4 +137,8 @@ public class Subject {
     public static Subject create(Long id, String name, String room, String teacher, int week, int day, int hour, int to, int color, boolean bell) {
         return new Subject(id, name, room, teacher, week, day, hour, to, color, bell);
     }
+
+    public static Subject create(Long id, String name, String room, String teacher, int week, int day, int hour, int color, int bell) {
+        return new Subject(id, name, room, teacher, week, day, hour, 0, color, bell != 0);
+    }
 }

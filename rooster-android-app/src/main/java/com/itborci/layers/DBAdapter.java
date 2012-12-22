@@ -160,27 +160,33 @@ public class DBAdapter {
         args.put(KEY_BELL, bell);
         return db.update(DATABASE_TABLE, args, KEY_ID + "=" + rowId, null) > 0;
     }
-    
+
     //Vrátí určitý záznam z tabulky subjects
-    public Cursor getSubjectByDayAndWeek(int day, int week) throws SQLException 
+    public Cursor getSubjectByWeekDayHour(int week, int day, int hour) throws SQLException
     {
-        Cursor mCursor =
-                db.query(true, DATABASE_TABLE, new String[] {
-                		KEY_ID, 
-                		KEY_SUBJECT,
-                		KEY_TEACHER,
-                		KEY_ROOM,
-                		KEY_DAY,
-                		KEY_WEEK,
-                		KEY_HOUR,
-                		KEY_COLOR,
-                		KEY_BELL},
-                		KEY_DAY + "=" + day + " and " + KEY_WEEK + "=" + week, 
-                		null,
-                		null, 
-                		null, 
-                		null, 
-                		null);
+        // TODO Beware of SQL Injection, use '?' parameters in WHERE clause
+        Cursor mCursor = db.query(
+                true,
+                DATABASE_TABLE,
+                new String[]{
+                        KEY_ID,
+                        KEY_SUBJECT,
+                        KEY_TEACHER,
+                        KEY_ROOM,
+                        KEY_DAY,
+                        KEY_WEEK,
+                        KEY_HOUR,
+                        KEY_COLOR,
+                        KEY_BELL
+                },
+                KEY_WEEK + " = " + week + " and " +
+                        KEY_DAY + " = " + day + " and " +
+                        KEY_HOUR + " = " + hour,
+                null,
+                null,
+                null,
+                null,
+                null);
         if (mCursor != null) {
             mCursor.moveToFirst();
         }
