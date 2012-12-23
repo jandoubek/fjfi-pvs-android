@@ -105,4 +105,13 @@
         android:entries="@array/colors"
         android:prompt="@string/spinnerPrompt" />
 
+    <CheckBox
+        android:id="@+id/notificationCheckBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/colorSpinner"
+        android:layout_below="@+id/colorSpinner"
+        android:layout_marginTop="18dp"
+        android:text="@string/notification_checkbox" />
+
 </RelativeLayout>

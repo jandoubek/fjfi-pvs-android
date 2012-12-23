@@ -16,6 +16,7 @@ public final class R {
     public static final class drawable {
         public static final int border=0x7f020000;
         public static final int icon=0x7f020001;
+        public static final int notification_icon=0x7f020002;
     }
     public static final class id {
         public static final int cancelButton=0x7f060040;
@@ -26,6 +27,7 @@ public final class R {
         public static final int deleteButton=0x7f06003f;
         public static final int nameEditText=0x7f060045;
         public static final int nameTextView=0x7f060041;
+        public static final int notificationCheckBox=0x7f060049;
         public static final int okButton=0x7f06003e;
         public static final int tableRow1=0x7f060000;
         public static final int tableRow10=0x7f06003a;
@@ -108,6 +110,7 @@ public final class R {
         public static final int hello=0x7f040000;
         public static final int monday=0x7f040002;
         public static final int name=0x7f040012;
+        public static final int notification_checkbox=0x7f04001d;
         public static final int ok=0x7f040018;
         public static final int red=0x7f04001c;
         public static final int spinnerPrompt=0x7f040019;

@@ -37,4 +37,5 @@
         <item>Yellow</item>
         <item>Black</item>
     </string-array>
+        <string name="notification_checkbox">Add notification</string>
 </resources>
