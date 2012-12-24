@@ -83,7 +83,6 @@ public class AlarmManagerReceiver extends BroadcastReceiver {
 			PendingIntent pi = PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
 			am.set(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + 3600000, pi);
 //			am.set(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + 10000, pi);
-			Log.i("NOTIFICATION", "not: " + intent.getStringExtra("name"));
 		}
     }
 	 
