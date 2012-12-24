@@ -1,583 +1,117 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-     >
-
+<LinearLayout xmlns:a="http://schemas.android.com/apk/res/android"
+             xmlns:my="http://schemas.android.com/apk/res-auto"
+    a:layout_width="match_parent"
+    a:layout_height="match_parent" >
+<TableLayout
+        a:layout_width="match_parent"
+        a:layout_height="match_parent"
+        a:layout_margin="3dp"
+        a:orientation="vertical">
     <TableRow
-        android:id="@+id/tableRow1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/border" >
+        a:layout_width="wrap_content"
+        a:layout_height="wrap_content"
+        a:layout_weight="0" >
 
-        <TextView
-            android:id="@+id/textViewThu"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_weight="0.166"
-            android:text="@string/time"
-            android:textAppearance="?android:attr/textAppearanceSmall" />
-
-        <TextView
-            android:id="@+id/textViewTime"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_weight="0.166"
-            android:text="@string/monday"
-            android:layout_margin="4dp"
-            android:textAppearance="?android:attr/textAppearanceSmall" />
-
-        <TextView
-            android:id="@+id/textViewMonday"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_weight="0.166"
-            android:text="@string/tuesday"
-            android:textAppearance="?android:attr/textAppearanceSmall" />
-
-        <TextView
-            android:id="@+id/textViewTue"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_weight="0.166"
-            android:text="@string/wednesday"
-            android:textAppearance="?android:attr/textAppearanceSmall" />
-
-        <TextView
-            android:id="@+id/textViewWed"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_weight="0.166"
-            android:text="@string/thursday"
-            android:textAppearance="?android:attr/textAppearanceSmall" />
-
-        <TextView
-            android:id="@+id/textViewFri"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_weight="0.166"
-            android:text="@string/friday"
-            android:textAppearance="?android:attr/textAppearanceSmall" />
+        <com.itborci.gui.DayView a:layout_weight="0" my:name="@string/time" />
+        <com.itborci.gui.DayView a:layout_weight="1" my:name="@string/monday" />
+        <com.itborci.gui.DayView a:layout_weight="1" my:name="@string/tuesday" />
+        <com.itborci.gui.DayView a:layout_weight="1" my:name="@string/wednesday" />
+        <com.itborci.gui.DayView a:layout_weight="1" my:name="@string/thursday" />
+        <com.itborci.gui.DayView a:layout_weight="1" my:name="@string/friday" />
     </TableRow>
 
     <TableRow
-        android:id="@+id/tableRow14"
-        android:layout_width="wrap_content"
-        android:layout_height="50dp" 
-        android:layout_marginTop="5dp"
-        android:layout_marginBottom="5dp">
+        a:layout_width="wrap_content"
+        a:layout_height="wrap_content"
+        a:layout_weight="1" >
+
+        <com.itborci.gui.TimeView a:layout_weight="0" my:from="@string/time0from" my:to="@string/time0to" />
+
+        <com.itborci.gui.SubjectView a:layout_weight="1" my:hour="0" my:day="0"/>
+        <com.itborci.gui.SubjectView a:layout_weight="1" my:hour="0" my:day="1"/>
+        <com.itborci.gui.SubjectView a:layout_weight="1" my:hour="0" my:day="2"/>
+        <com.itborci.gui.SubjectView a:layout_weight="1" my:hour="0" my:day="3"/>
+        <com.itborci.gui.SubjectView a:layout_weight="1" my:hour="0" my:day="4"/>
     </TableRow>
 
     <TableRow
-        android:id="@+id/tableRow2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="1dp"
-        android:layout_marginTop="1dp"
-        android:background="@drawable/border"
-         >
+            a:layout_width="wrap_content"
+            a:layout_height="wrap_content"
+            a:layout_weight="1" >
 
-        <TextView
-            android:id="@+id/textView1"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="0.166"
-            android:text="@string/time1"
-            android:textAppearance="?android:attr/textAppearanceSmall" />
+        <com.itborci.gui.TimeView a:layout_weight="0" my:from="@string/time1from" my:to="@string/time1to"/>
 
-        <TextView
-            android:id="@+id/tv_po_1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.166"
-            android:clickable="true"
-            android:onClick="onClick"
-            android:gravity="center_horizontal"
-            android:text="@string/test_subject" />
-
-        <TextView
-            android:id="@+id/tv_ut_1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.166"
-            android:clickable="true"
-            android:onClick="onClick"
-            android:gravity="center_horizontal"
-            android:text="@string/test_subject" />
-
-        <TextView
-            android:id="@+id/tv_st_1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.166"
-            android:clickable="true"
-            android:onClick="onClick"
-            android:gravity="center_horizontal"
-            android:text="@string/test_subject" />
-
-        <TextView
-            android:id="@+id/tv_ct_1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.166"
-            android:clickable="true"
-            android:onClick="onClick"
-            android:gravity="center_horizontal"
-            android:text="@string/test_subject" />
-
-        <TextView
-            android:id="@+id/tv_pa_1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:layout_weight="0.166"
-            android:clickable="true"
-            android:onClick="onClick"
-            android:text="@string/test_subject" />
-
+        <com.itborci.gui.SubjectView a:layout_weight="1" my:hour="1" my:day="0"/>
+        <com.itborci.gui.SubjectView a:layout_weight="1" my:hour="1" my:day="1"/>
+        <com.itborci.gui.SubjectView a:layout_weight="1" my:hour="1" my:day="2"/>
+        <com.itborci.gui.SubjectView a:layout_weight="1" my:hour="1" my:day="3"/>
+        <com.itborci.gui.SubjectView a:layout_weight="1" my:hour="1" my:day="4"/>
     </TableRow>
-
     <TableRow
-        android:id="@+id/tableRow3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="1dp"
-        android:layout_marginTop="1dp"
-        android:background="@drawable/border" >
+            a:layout_width="wrap_content"
+            a:layout_height="wrap_content"
+            a:layout_weight="1" >
 
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="0.166"
-            android:text="@string/time2"
-            android:textAppearance="?android:attr/textAppearanceSmall" />
+        <com.itborci.gui.TimeView a:layout_weight="0" my:from="@string/time2from" my:to="@string/time2to"/>
 
-        <TextView
-            android:id="@+id/tv_po_2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.166"
-            android:gravity="center_horizontal"
-            android:clickable="true"
-            android:onClick="onClick"
-            android:text="@string/test_subject" />
-
-        <TextView
-            android:id="@+id/tv_ut_2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.166"
-            android:gravity="center_horizontal"
-            android:clickable="true"
-            android:onClick="onClick"
-            android:text="@string/test_subject" />
-
-        <TextView
-            android:id="@+id/tv_st_2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.166"
-            android:clickable="true"
-            android:onClick="onClick"
-            android:gravity="center_horizontal"
-            android:text="@string/test_subject" />
-
-        <TextView
-            android:id="@+id/tv_ct_2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.166"
-            android:clickable="true"
-            android:onClick="onClick"
-            android:gravity="center_horizontal"
-            android:text="@string/test_subject" />
-
-        <TextView
-            android:id="@+id/tv_pa_2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.166"
-            android:clickable="true"
-            android:onClick="onClick"
-            android:gravity="center_horizontal"
-            android:text="@string/test_subject" />
+        <com.itborci.gui.SubjectView a:layout_weight="1" my:hour="2" my:day="0"/>
+        <com.itborci.gui.SubjectView a:layout_weight="1" my:hour="2" my:day="1"/>
+        <com.itborci.gui.SubjectView a:layout_weight="1" my:hour="2" my:day="2"/>
+        <com.itborci.gui.SubjectView a:layout_weight="1" my:hour="2" my:day="3"/>
+        <com.itborci.gui.SubjectView a:layout_weight="1" my:hour="2" my:day="4"/>
     </TableRow>
-
     <TableRow
-        android:id="@+id/tableRow4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="1dp"
-        android:layout_marginTop="1dp"
-        android:background="@drawable/border" >
+            a:layout_width="wrap_content"
+            a:layout_height="wrap_content"
+            a:layout_weight="1" >
 
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="0.166"
-            android:text="@string/time3"
-            android:textAppearance="?android:attr/textAppearanceSmall" />
+        <com.itborci.gui.TimeView a:layout_weight="0" my:from="@string/time3from" my:to="@string/time3to"/>
 
-        <TextView
-            android:id="@+id/tv_po_3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.166"
-            android:clickable="true"
-            android:onClick="onClick"
-            android:gravity="center_horizontal"
-            android:text="@string/test_subject" />
-
-        <TextView
-            android:id="@+id/tv_ut_3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.166"
-            android:clickable="true"
-            android:onClick="onClick"
-            android:gravity="center_horizontal"
-            android:text="@string/test_subject" />
-
-        <TextView
-            android:id="@+id/tv_st_3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.166"
-            android:clickable="true"
-            android:onClick="onClick"
-            android:gravity="center_horizontal"
-            android:text="@string/test_subject" />
-
-        <TextView
-            android:id="@+id/tv_ct_3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.166"
-            android:clickable="true"
-            android:onClick="onClick"
-            android:gravity="center_horizontal"
-            android:text="@string/test_subject" />
-
-        <TextView
-            android:id="@+id/tv_pa_3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.166"
-            android:clickable="true"
-            android:onClick="onClick"
-            android:gravity="center_horizontal"
-            android:text="@string/test_subject" />
+        <com.itborci.gui.SubjectView a:layout_weight="1" my:hour="3" my:day="0"/>
+        <com.itborci.gui.SubjectView a:layout_weight="1" my:hour="3" my:day="1"/>
+        <com.itborci.gui.SubjectView a:layout_weight="1" my:hour="3" my:day="2"/>
+        <com.itborci.gui.SubjectView a:layout_weight="1" my:hour="3" my:day="3"/>
+        <com.itborci.gui.SubjectView a:layout_weight="1" my:hour="3" my:day="4"/>
     </TableRow>
-
     <TableRow
-        android:id="@+id/tableRow5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="1dp"
-        android:layout_marginTop="1dp"
-        android:background="@drawable/border" >
+            a:layout_width="wrap_content"
+            a:layout_height="wrap_content"
+            a:layout_weight="1" >
 
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="0.166"
-            android:text="@string/time4"
-            android:textAppearance="?android:attr/textAppearanceSmall" />
+        <com.itborci.gui.TimeView a:layout_weight="0" my:from="@string/time4from" my:to="@string/time4to"/>
 
-        <TextView
-            android:id="@+id/tv_po_4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.166"
-            android:clickable="true"
-            android:onClick="onClick"
-            android:gravity="center_horizontal"
-            android:text="@string/test_subject" />
-
-        <TextView
-            android:id="@+id/tv_ut_4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.166"
-            android:clickable="true"
-            android:onClick="onClick"
-            android:gravity="center_horizontal"
-            android:text="@string/test_subject" />
-
-        <TextView
-            android:id="@+id/tv_st_4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.166"
-            android:clickable="true"
-            android:onClick="onClick"
-            android:gravity="center_horizontal"
-            android:text="@string/test_subject" />
-
-        <TextView
-            android:id="@+id/tv_ct_4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.166"
-            android:clickable="true"
-            android:onClick="onClick"
-            android:gravity="center_horizontal"
-            android:text="@string/test_subject" />
-
-        <TextView
-            android:id="@+id/tv_pa_4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.166"
-            android:clickable="true"
-            android:onClick="onClick"
-            android:gravity="center_horizontal"
-            android:text="@string/test_subject" />
+        <com.itborci.gui.SubjectView a:layout_weight="1" my:hour="4" my:day="0"/>
+        <com.itborci.gui.SubjectView a:layout_weight="1" my:hour="4" my:day="1"/>
+        <com.itborci.gui.SubjectView a:layout_weight="1" my:hour="4" my:day="2"/>
+        <com.itborci.gui.SubjectView a:layout_weight="1" my:hour="4" my:day="3"/>
+        <com.itborci.gui.SubjectView a:layout_weight="1" my:hour="4" my:day="4"/>
     </TableRow>
-
     <TableRow
-        android:id="@+id/tableRow6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="1dp"
-        android:layout_marginTop="1dp"
-        android:background="@drawable/border" >
+            a:layout_width="wrap_content"
+            a:layout_height="wrap_content"
+            a:layout_weight="1" >
 
-        <TextView
-            android:id="@+id/textView5"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="0.166"
-            android:text="@string/time5"
-            android:textAppearance="?android:attr/textAppearanceSmall" />
+        <com.itborci.gui.TimeView a:layout_weight="0" my:from="@string/time5from" my:to="@string/time5to"/>
 
-        <TextView
-            android:id="@+id/tv_po_5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.166"
-            android:clickable="true"
-            android:onClick="onClick"
-            android:gravity="center_horizontal"
-            android:text="@string/test_subject" />
-
-        <TextView
-            android:id="@+id/tv_ut_5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.166"
-            android:clickable="true"
-            android:onClick="onClick"
-            android:gravity="center_horizontal"
-            android:text="@string/test_subject" />
-
-        <TextView
-            android:id="@+id/tv_st_5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.166"
-            android:clickable="true"
-            android:onClick="onClick"
-            android:gravity="center_horizontal"
-            android:text="@string/test_subject" />
-
-        <TextView
-            android:id="@+id/tv_ct_5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.166"
-            android:clickable="true"
-            android:onClick="onClick"
-            android:gravity="center_horizontal"
-            android:text="@string/test_subject" />
-
-        <TextView
-            android:id="@+id/tv_pa_5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.166"
-            android:clickable="true"
-            android:onClick="onClick"
-            android:gravity="center_horizontal"
-            android:text="@string/test_subject" />
+        <com.itborci.gui.SubjectView a:layout_weight="1" my:hour="5" my:day="0"/>
+        <com.itborci.gui.SubjectView a:layout_weight="1" my:hour="5" my:day="1"/>
+        <com.itborci.gui.SubjectView a:layout_weight="1" my:hour="5" my:day="2"/>
+        <com.itborci.gui.SubjectView a:layout_weight="1" my:hour="5" my:day="3"/>
+        <com.itborci.gui.SubjectView a:layout_weight="1" my:hour="5" my:day="4"/>
     </TableRow>
-
     <TableRow
-        android:id="@+id/tableRow7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="1dp"
-        android:layout_marginTop="1dp"
-        android:background="@drawable/border" >
+            a:layout_width="wrap_content"
+            a:layout_height="wrap_content"
+            a:layout_weight="1" >
 
-        <TextView
-            android:id="@+id/textView6"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="0.166"
-            android:text="@string/time6"
-            android:textAppearance="?android:attr/textAppearanceSmall" />
+        <com.itborci.gui.TimeView a:layout_weight="0" my:from="@string/time6from" my:to="@string/time6to"/>
 
-        <TextView
-            android:id="@+id/tv_po_6"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.166"
-            android:clickable="true"
-            android:onClick="onClick"
-            android:gravity="center_horizontal"
-            android:text="@string/test_subject" />
-
-        <TextView
-            android:id="@+id/tv_ut_6"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.166"
-            android:clickable="true"
-            android:onClick="onClick"
-            android:gravity="center_horizontal"
-            android:text="@string/test_subject" />
-
-        <TextView
-            android:id="@+id/tv_st_6"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.166"
-            android:clickable="true"
-            android:onClick="onClick"
-            android:gravity="center_horizontal"
-            android:text="@string/test_subject" />
-
-        <TextView
-            android:id="@+id/tv_ct_6"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.166"
-            android:clickable="true"
-            android:onClick="onClick"
-            android:gravity="center_horizontal"
-            android:text="@string/test_subject" />
-
-        <TextView
-            android:id="@+id/tv_pa_6"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.166"
-            android:clickable="true"
-            android:onClick="onClick"
-            android:gravity="center_horizontal"
-            android:text="@string/test_subject" />
+        <com.itborci.gui.SubjectView a:layout_weight="1" my:hour="6" my:day="0"/>
+        <com.itborci.gui.SubjectView a:layout_weight="1" my:hour="6" my:day="1"/>
+        <com.itborci.gui.SubjectView a:layout_weight="1" my:hour="6" my:day="2"/>
+        <com.itborci.gui.SubjectView a:layout_weight="1" my:hour="6" my:day="3"/>
+        <com.itborci.gui.SubjectView a:layout_weight="1" my:hour="6" my:day="4"/>
     </TableRow>
-
-    <TableRow
-        android:id="@+id/tableRow8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="1dp"
-        android:layout_marginTop="1dp"
-        android:background="@drawable/border" >
-
-        <TextView
-            android:id="@+id/textView7"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="0.166"
-            android:text="@string/time7"
-            android:textAppearance="?android:attr/textAppearanceSmall" />
-
-        <TextView
-            android:id="@+id/tv_po_7"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.166"
-            android:clickable="true"
-            android:onClick="onClick"
-            android:gravity="center_horizontal"
-            android:text="@string/test_subject" />
-
-        <TextView
-            android:id="@+id/tv_ut_7"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.166"
-            android:clickable="true"
-            android:onClick="onClick"
-            android:gravity="center_horizontal"
-            android:text="@string/test_subject" />
-
-        <TextView
-            android:id="@+id/tv_st_7"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.166"
-            android:clickable="true"
-            android:onClick="onClick"
-            android:gravity="center_horizontal"
-            android:text="@string/test_subject" />
-
-        <TextView
-            android:id="@+id/tv_ct_7"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.166"
-            android:clickable="true"
-            android:onClick="onClick"
-            android:gravity="center_horizontal"
-            android:text="@string/test_subject" />
-
-        <TextView
-            android:id="@+id/tv_pa_7"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.166"
-            android:clickable="true"
-            android:onClick="onClick"
-            android:gravity="center_horizontal"
-            android:text="@string/test_subject" />
-    </TableRow>
-
-    <TableRow
-        android:id="@+id/tableRow9"
-        android:layout_margin="4dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" >
-
-    </TableRow>
-
-    <TableRow
-        android:id="@+id/tableRow10"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" >
-    </TableRow>
-
-    <TableRow
-        android:id="@+id/tableRow11"
-        android:layout_margin="4dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" >
-    </TableRow>
-
-    <TableRow
-        android:layout_margin="4dp"
-        android:id="@+id/tableRow12"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" >
-    </TableRow>
-
-    <TableRow
-        android:id="@+id/tableRow13"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" >
-    </TableRow>
-
 </TableLayout>
+</LinearLayout>

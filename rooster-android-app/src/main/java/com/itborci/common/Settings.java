@@ -16,7 +16,7 @@ package com.itborci.common;
 // TODO Migrate to android settings
 public class Settings {
 
-    public static boolean mockSubjectDL() {
+    public static boolean mockSubjectDao() {
         return true;
     }
 }

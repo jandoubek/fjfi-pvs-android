@@ -1,9 +1,6 @@
 package com.itborci.gui;
 
-import java.text.Format;
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Date;
 
 import android.app.AlarmManager;
 import android.app.Notification;
@@ -12,19 +9,19 @@ import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
+import android.media.AudioManager;
 import android.os.Bundle;
 import android.os.PowerManager;
 import android.util.Log;
-import android.widget.Toast;
 
 import com.itborci.R;
+import com.itborci.POJO.Subject;
+
 
 public class AlarmManagerReceiver extends BroadcastReceiver {
 
 	final public static String ONE_TIME = "onetime";
-	private String subject, message;
-	private SharedPreferences sharedPreferences;
+	private Subject subject;
 	 
 	 @Override
 	 public void onReceive(Context context, Intent intent) {
@@ -33,52 +30,61 @@ public class AlarmManagerReceiver extends BroadcastReceiver {
 	         //Acquire the lock
 	         wl.acquire();
 	         
-	         //You can do the processing here.
+	         AudioManager am = (AudioManager) context.getSystemService(Context.AUDIO_SERVICE);
+	         
 	         Bundle extras = intent.getExtras();
-	         StringBuilder msgStr = new StringBuilder();
-	          
-	         if(extras != null && extras.getBoolean(ONE_TIME, Boolean.FALSE)){
-	          //Make sure this intent has been sent by the one-time timer button.
-	          msgStr.append("One time Timer : ");
-	         }
-	         Format formatter = new SimpleDateFormat("hh:mm:ss a");
-	         msgStr.append(formatter.format(new Date()));
-	 
-//	         Toast.makeText(context, msgStr, Toast.LENGTH_LONG).show();
-	         NotificationManager mNM = (NotificationManager)context.getSystemService(Context.NOTIFICATION_SERVICE);
-	         Notification notification = new Notification(R.drawable.notification_icon, "Rooster notification", System.currentTimeMillis());
-
-//	         long[] vibrate = {0,100,200};
-//	         notification.vibrate = vibrate;
 	         
-	         Intent myIntent = new Intent(context , MainActivity.class);     
-	         PendingIntent contentIntent = PendingIntent.getBroadcast(context, 0, myIntent, 0);
+	         if (extras.containsKey("name")) {
+	        	 String name = extras.getString("name");
+	        	 String details = extras.getString("room") + ", " + extras.getString("teacher");
 	         
-	         Log.i("NOTIFICATION", "vypis: " + subject + ", " + message);
-	         if (subject == null || message == null) {
-	        	 notification.setLatestEventInfo(context, "Numerika", "T108, Beneš", contentIntent);
+	//	         Toast.makeText(context, msgStr, Toast.LENGTH_LONG).show();
+		         NotificationManager mNM = (NotificationManager)context.getSystemService(Context.NOTIFICATION_SERVICE);
+		         Notification notification = new Notification(R.drawable.notification_icon, "Rooster notification", System.currentTimeMillis());
+	
+	//	         long[] vibrate = {0,100,200};
+	//	         notification.vibrate = vibrate;
+		         
+		         Intent myIntent = new Intent(context , AlarmManagerReceiver.class);     
+		         PendingIntent contentIntent = PendingIntent.getBroadcast(context, 0, myIntent, 0);
+		         
+		         notification.setLatestEventInfo(context, name, details, contentIntent);
+		         mNM.notify(AlarmManager.RTC_WAKEUP, notification);
+		         am.setRingerMode(AudioManager.RINGER_MODE_SILENT);
+		         setAlarm(context, null);
+		         
 	         } else {
-	        	 notification.setLatestEventInfo(context, subject, message, contentIntent);
+	        	 am.setRingerMode(AudioManager.RINGER_MODE_NORMAL);
+	        	 
 	         }
-	         mNM.notify(AlarmManager.RTC_WAKEUP, notification);
-	          
-	         //Release the lock
+	         
 	         wl.release();
 	 }
 	 
-	public void setAlarm(Context context, String sub, String clas)
+	public void setAlarm(Context context, Subject subject)
     {
-        AlarmManager am=(AlarmManager)context.getSystemService(Context.ALARM_SERVICE);
-        subject = sub;
-        message = clas;
-        Log.i("NOTIFICATION",  "vypis_setAlarm: " + subject + ", " + message);
-        
-        Intent intent = new Intent(context, AlarmManagerReceiver.class);
-        intent.putExtra(ONE_TIME, Boolean.FALSE);
-        PendingIntent pi = PendingIntent.getBroadcast(context, 0, intent, 0);
-        
-       // am.setRepeating(, , 0 , pi);
-        am.set(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + 20000, pi);
+		AlarmManager am = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
+		Intent intent = new Intent(context, AlarmManagerReceiver.class);
+        if (subject != null) {
+        	this.subject = subject;
+			Log.i("NOTIFICATION", "vypis_setAlarm: " + subject.getName() + ", "
+					+ subject.getRoom() + ", " + subject.getTeacher() + ", "
+					+ subject.getWeek() + ", " + subject.getDay() + ", "
+					+ subject.getHour());
+			intent.putExtra("name", subject.getName());
+			intent.putExtra("teacher", subject.getTeacher());
+			intent.putExtra("room", subject.getRoom());
+			PendingIntent pi = PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+			Calendar firstTime = Calendar.getInstance();
+			am.setRepeating(AlarmManager.RTC_WAKEUP,
+					System.currentTimeMillis() + 10000, 604800000, pi); // timeunit uz nema DAYS a WEEKS konstanty, zatim natvrdo
+			//        am.set(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + 20000, pi);
+		} else {
+			PendingIntent pi = PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+			am.set(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + 3600000, pi);
+//			am.set(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + 10000, pi);
+			Log.i("NOTIFICATION", "not: " + intent.getStringExtra("name"));
+		}
     }
 	 
 //    public void cancelAlarm(Context context)

@@ -1,0 +1,14 @@
+<resources>
+    <declare-styleable name="SubjectView">
+        <attr name="hour" format="integer" />
+        <attr name="day" format="integer" />
+        <attr name="week" format="integer" />
+    </declare-styleable>
+    <declare-styleable name="TimeView">
+        <attr name="from" format="reference" />
+        <attr name="to" format="reference" />
+    </declare-styleable>
+    <declare-styleable name="DayView">
+        <attr name="name" format="reference" />
+    </declare-styleable>
+</resources>

@@ -15,8 +15,7 @@ public class DBAdapter {
     public static final String KEY_ROOM = "room";
     public static final String KEY_DAY = "day";
     public static final String KEY_WEEK = "week";
-    public static final String KEY_FROM = "from";
-    public static final String KEY_TO = "to";
+    public static final String KEY_HOUR = "hour";
     public static final String KEY_COLOR = "color";
     public static final String KEY_BELL = "bell";
     private static final String TAG = "DBAdapter";
@@ -28,7 +27,7 @@ public class DBAdapter {
     private static final String TABLE_CREATE =
         "create table subjects (id integer primary key autoincrement, "
         + "subject text not null, teacher text not null, room text not null, day integer not null, "
-		+ "week integer not null, from integer not null, to integer not null, color integer not null, "
+		+ "week integer not null, hour integer not null, color integer not null, "
         + "bell integer not null);";
         
     private final Context context; 
@@ -81,7 +80,7 @@ public class DBAdapter {
     }
     
     //Vloží položku do tabulky subjects
-    public long insertSubject(String subject, String teacher, String room, int day, int week, int from, int to, int color, int bell) throws SQLException 
+    public long insertSubject(String subject, String teacher, String room, int day, int week, int hour, int color, int bell) throws SQLException 
     {
         ContentValues initialValues = new ContentValues();
         initialValues.put(KEY_SUBJECT, subject);
@@ -89,8 +88,7 @@ public class DBAdapter {
         initialValues.put(KEY_ROOM, room);
         initialValues.put(KEY_DAY, day);
         initialValues.put(KEY_WEEK, week);
-        initialValues.put(KEY_FROM, from);
-        initialValues.put(KEY_TO, to);
+        initialValues.put(KEY_HOUR, hour);
         initialValues.put(KEY_COLOR, color);
         initialValues.put(KEY_BELL, bell);
         return db.insert(DATABASE_TABLE, null, initialValues);
@@ -112,8 +110,7 @@ public class DBAdapter {
         		KEY_ROOM,
         		KEY_DAY,
         		KEY_WEEK,
-        		KEY_FROM,
-        		KEY_TO,
+        		KEY_HOUR,
         		KEY_COLOR,
         		KEY_BELL}, 
                 null, 
@@ -134,8 +131,7 @@ public class DBAdapter {
                 		KEY_ROOM,
                 		KEY_DAY,
                 		KEY_WEEK,
-                		KEY_FROM,
-                		KEY_TO,
+                		KEY_HOUR,
                 		KEY_COLOR,
                 		KEY_BELL},
                 		KEY_ID + "=" + rowId, 
@@ -151,7 +147,7 @@ public class DBAdapter {
     }
 
     //Aktualizace určitého záznamu z tabulky subjects
-    public boolean updateSubjectById(long rowId, String subject, String teacher, String room, int day, int week, int from, int to, int color, int bell) throws SQLException 
+    public boolean updateSubjectById(long rowId, String subject, String teacher, String room, int day, int week, int hour, int color, int bell) throws SQLException 
     {
         ContentValues args = new ContentValues();
         args.put(KEY_SUBJECT, subject);
@@ -159,34 +155,38 @@ public class DBAdapter {
         args.put(KEY_ROOM, room);
         args.put(KEY_DAY, day);
         args.put(KEY_WEEK, week);
-        args.put(KEY_FROM, from);
-        args.put(KEY_TO, to);
+        args.put(KEY_HOUR, hour);
         args.put(KEY_COLOR, color);
         args.put(KEY_BELL, bell);
         return db.update(DATABASE_TABLE, args, KEY_ID + "=" + rowId, null) > 0;
     }
-    
+
     //Vrátí určitý záznam z tabulky subjects
-    public Cursor getSubjectByDayAndWeek(int day, int week) throws SQLException 
+    public Cursor getSubjectByWeekDayHour(int week, int day, int hour) throws SQLException
     {
-        Cursor mCursor =
-                db.query(true, DATABASE_TABLE, new String[] {
-                		KEY_ID, 
-                		KEY_SUBJECT,
-                		KEY_TEACHER,
-                		KEY_ROOM,
-                		KEY_DAY,
-                		KEY_WEEK,
-                		KEY_FROM,
-                		KEY_TO,
-                		KEY_COLOR,
-                		KEY_BELL},
-                		KEY_DAY + "=" + day + "and" + KEY_WEEK + "=" + week, 
-                		null,
-                		null, 
-                		null, 
-                		null, 
-                		null);
+        // TODO Beware of SQL Injection, use '?' parameters in WHERE clause
+        Cursor mCursor = db.query(
+                true,
+                DATABASE_TABLE,
+                new String[]{
+                        KEY_ID,
+                        KEY_SUBJECT,
+                        KEY_TEACHER,
+                        KEY_ROOM,
+                        KEY_DAY,
+                        KEY_WEEK,
+                        KEY_HOUR,
+                        KEY_COLOR,
+                        KEY_BELL
+                },
+                KEY_WEEK + " = " + week + " and " +
+                        KEY_DAY + " = " + day + " and " +
+                        KEY_HOUR + " = " + hour,
+                null,
+                null,
+                null,
+                null,
+                null);
         if (mCursor != null) {
             mCursor.moveToFirst();
         }
