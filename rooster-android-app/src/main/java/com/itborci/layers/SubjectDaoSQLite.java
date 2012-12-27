@@ -9,6 +9,8 @@ package com.itborci.layers;
 
 import android.content.Context;
 import android.database.Cursor;
+import android.util.Log;
+
 import com.itborci.POJO.Subject;
 
 /**
@@ -116,6 +118,7 @@ class SubjectDaoSQLite implements SubjectDao {
     }
 
     private Subject cursorToSubject(Cursor cursor) {
+    	Log.i("TEST", "sem to jeste dojede");
         Subject subject = Subject.create(
                 cursor.getLong(cursor.getColumnIndex(DBAdapter.KEY_ID)),
                 cursor.getString(cursor.getColumnIndex(DBAdapter.KEY_SUBJECT)),
@@ -126,6 +129,7 @@ class SubjectDaoSQLite implements SubjectDao {
                 cursor.getInt(cursor.getColumnIndex(DBAdapter.KEY_HOUR)),
                 cursor.getInt(cursor.getColumnIndex(DBAdapter.KEY_COLOR)),
                 cursor.getInt(cursor.getColumnIndex(DBAdapter.KEY_BELL)));
+        Log.i("TEST", "sem uz ne :/");
         return subject;
     }
 }

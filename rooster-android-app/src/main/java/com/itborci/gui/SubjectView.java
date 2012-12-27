@@ -9,12 +9,15 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.drawable.GradientDrawable;
 import android.util.AttributeSet;
+import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.itborci.POJO.Subject;
+
 import com.itborci.R;
+import com.itborci.POJO.Subject;
 import com.itborci.layers.DaoFactory;
 
 /**
@@ -37,8 +40,9 @@ public class SubjectView extends LinearLayout {
     }
 
     private void init(Context context, AttributeSet attrs) {
+//    	LayoutInflater inflater = LayoutInflater.from(context);
+//    	View theInflatedView = inflater.inflate(R.layout.subject_view, this);
         inflate(context, R.layout.subject_view, this);
-
         TypedArray arr = context.obtainStyledAttributes(attrs, R.styleable.SubjectView);
         int hour = arr.getInt(R.styleable.SubjectView_hour, 0);
         int day = arr.getInt(R.styleable.SubjectView_day, 0);
@@ -54,9 +58,7 @@ public class SubjectView extends LinearLayout {
         communicator = new Communicator(this, subject);
 
         arr.recycle();
-
         refreshFromData(context);
-
         setClickable(true);
         setOnClickListener(new OnClickListener() {
             @Override

@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.preference.PreferenceManager;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -110,9 +111,30 @@ public class SubjectDialog extends BaseDialog {
         name.setText(subject.getName());
         classroom.setText(subject.getRoom());
         teacher.setText(subject.getTeacher());
+        colorSpinner.setSelection(convertColor(subject.getColor()));
+        int bell = subject.getBellAsInt();
+        if (bell == 1) notification.setChecked(true);
     }
 
-    private void onSave() {
+	private int convertColor(int color) {
+		switch (color) {
+		case Color.BLUE:
+			return 0;
+		case Color.RED:
+			return 1;
+		case Color.GREEN:
+			return 2;
+		case Color.YELLOW:
+			return 3;
+		case Color.BLACK:
+			return 4;
+
+		default:
+			return 0;
+		}
+	}
+
+	private void onSave() {
         Subject subject = communicator.getSubject();
 
         subject.setName(name.getText().toString());
@@ -172,7 +194,7 @@ public class SubjectDialog extends BaseDialog {
 		case 3:
 			return 0xFFFFF675; // yellowish
 		case 4:
-            return Color.BLACK;
+			return Color.BLACK;
 		default:
 			return Color.MAGENTA;
 		}
