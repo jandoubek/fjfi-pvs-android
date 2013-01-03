@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.preference.PreferenceManager;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -15,7 +14,15 @@ import com.itborci.R;
 import com.itborci.layers.DaoFactory;
 
 public class SubjectDialog extends BaseDialog {
-	private static final int inputMaxLength = 9;
+	private static final int INPUT_MAX_LENGTH = 9;
+
+    private static final int COLOR_RED = Color.RED;
+    private static final int COLOR_GREEN = 0xFF75FF7A;
+    private static final int COLOR_YELLOW = 0xFFFFF675;
+    private static final int COLOR_BLACK = Color.BLACK;
+    private static final int COLOR_BLUE = Color.BLUE;
+    private static final int COLOR_MAGENTA = Color.MAGENTA;
+
 	private SharedPreferences sharedPreferences;
 	private EditText name, classroom, teacher;
 	private Button okButton, cancelButton, deleteButton;
@@ -111,28 +118,11 @@ public class SubjectDialog extends BaseDialog {
         name.setText(subject.getName());
         classroom.setText(subject.getRoom());
         teacher.setText(subject.getTeacher());
-        colorSpinner.setSelection(convertColor(subject.getColor()));
-        int bell = subject.getBellAsInt();
-        if (bell == 1) notification.setChecked(true);
+        colorSpinner.setSelection(colorToIndex(subject.getColor()));
+        notification.setChecked(subject.isBell());
     }
 
-	private int convertColor(int color) {
-		switch (color) {
-		case Color.BLUE:
-			return 0;
-		case Color.RED:
-			return 1;
-		case Color.GREEN:
-			return 2;
-		case Color.YELLOW:
-			return 3;
-		case Color.BLACK:
-			return 4;
 
-		default:
-			return 0;
-		}
-	}
 
 	private void onSave() {
         Subject subject = communicator.getSubject();
@@ -140,7 +130,7 @@ public class SubjectDialog extends BaseDialog {
         subject.setName(name.getText().toString());
         subject.setRoom(classroom.getText().toString());
         subject.setTeacher(teacher.getText().toString());
-        subject.setColor(getColorFromSpinner(colorSpinner));
+        subject.setColor(indexToColor(colorSpinner.getSelectedItemPosition()));
         
         if (notification.isChecked()) {
         	subject.setBell(true);
@@ -173,30 +163,47 @@ public class SubjectDialog extends BaseDialog {
 	// editing of too long inputs
 	private String checkLengthOfInputs(EditText et) {
 		String longInput = et.getText().toString();
-		if (longInput.length() > inputMaxLength) {
-			longInput = longInput.substring(0, inputMaxLength-2) + "..";
+		if (longInput.length() > INPUT_MAX_LENGTH) {
+			longInput = longInput.substring(0, INPUT_MAX_LENGTH -2) + "..";
 		}
 		
 		return longInput;
 	}
 
 	// set background of edited TextView
-	private int getColorFromSpinner(Spinner spinner) {
-		int idColor = (int)spinner.getSelectedItemId();
-
-		switch (idColor) {
+	private int indexToColor(int colorIndex) {
+		switch (colorIndex) {
 		case 0:
-            return Color.BLUE;
+            return COLOR_BLUE;
 		case 1:
-			return Color.RED;
+			return COLOR_RED;
 		case 2:
-			return 0xFF75FF7A; // greenish
+			return COLOR_GREEN;
 		case 3:
-			return 0xFFFFF675; // yellowish
+			return COLOR_YELLOW;
 		case 4:
-			return Color.BLACK;
+			return COLOR_BLACK;
+
 		default:
-			return Color.MAGENTA;
+			return COLOR_MAGENTA;
 		}
 	}
+
+    private int colorToIndex(int color) {
+        switch (color) {
+            case COLOR_BLUE:
+                return 0;
+            case COLOR_RED:
+                return 1;
+            case COLOR_GREEN:
+                return 2;
+            case COLOR_YELLOW:
+                return 3;
+            case COLOR_BLACK:
+                return 4;
+
+            default:
+                return 0;
+        }
+    }
 }
