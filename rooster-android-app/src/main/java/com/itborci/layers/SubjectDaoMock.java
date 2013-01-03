@@ -42,24 +42,24 @@ class SubjectDaoMock implements SubjectDao {
         listMonday =
                 Collections.unmodifiableList(
                 Arrays.asList(
-                Subject.create(id++, "VAMB", "T-210", "Beneö", 0, 0, 1, 1, color1, true),
-                Subject.create(id++, "ZTGB", "T-207", "Ambroö", 0, 0, 2, 2, color1, false)
+                Subject.create(id++, "VAMB", "T-210", "Bene≈°", 0, 0, 1, 1, color1, true),
+                Subject.create(id++, "ZTGB", "T-207", "Ambro≈æ", 0, 0, 2, 2, color1, false)
         )
         );
 
         listTuesday = Collections.unmodifiableList(Arrays.asList(
                 Subject.create(id++, "FIMA", "T-211", "Hora", 0, 1, 0, 0, color1, false),
                 Subject.create(id++, "SQL", "T-014", "Kukal", 0, 1, 1, 1, color2, true),
-                Subject.create(id++, "MOPR", "T-014", "BoroviËka", 0, 1, 2, 2, color2, false),
-                Subject.create(id++, "MOPRcv", "T-014", "BoroviËka", 0, 1, 3, 3, color2, true),
+                Subject.create(id++, "MOPR", "T-014", "Boroviƒçka", 0, 1, 2, 2, color2, false),
+                Subject.create(id++, "MOPRcv", "T-014", "Boroviƒçka", 0, 1, 3, 3, color2, true),
                 Subject.create(id++, "PVS", "T-115", "Doubek", 0, 1, 4, 4, color2, true)
         ));
 
         listWednesday = Collections.unmodifiableList(Arrays.asList(
                 Subject.create(id++, "FIMA", "T-211", "Hora", 0, 2, 0, 0, color1, false),
                 Subject.create(id++, "SQL", "T-014", "Kukal", 0, 2, 1, 1, color2, true),
-                Subject.create(id++, "MOPR", "T-014", "BoroviËka", 0, 2, 2, 2, color2, false),
-                Subject.create(id++, "MOPRcv", "T-014", "BoroviËka", 0, 2, 3, 3, color2, true),
+                Subject.create(id++, "MOPR", "T-014", "Boroviƒçka", 0, 2, 2, 2, color2, false),
+                Subject.create(id++, "MOPRcv", "T-014", "Boroviƒçka", 0, 2, 3, 3, color2, true),
                 Subject.create(id++, "PVS", "T-115", "Doubek", 0, 2, 4, 4, color2, true)
         ));
 
@@ -75,11 +75,11 @@ class SubjectDaoMock implements SubjectDao {
 
         // add them to all list
         listAll = new ArrayList<Subject>();
-//        listAll.addAll(listMonday);
-//        listAll.addAll(listTuesday);
-//        listAll.addAll(listWednesday);
-//        listAll.addAll(listThursday);
-//        listAll.addAll(listFriday);
+        listAll.addAll(listMonday);
+        listAll.addAll(listTuesday);
+        listAll.addAll(listWednesday);
+        listAll.addAll(listThursday);
+        listAll.addAll(listFriday);
     }
 
     @Override
